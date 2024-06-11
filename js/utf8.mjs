@@ -38,26 +38,3 @@ export function splitBin(bin) {
         remainder: str.substring(index),
     };
 }
-
-// export function binToDec(bin) {
-//     return parseInt(bin, 2).toString(10);
-// }
-//
-// export function binToExplain(bin) {
-//     const bits = [];
-//     let isContinuation = true;
-//
-//     for (const bit of bin) {
-//         bits.push({ bit: bit, continuation: isContinuation });
-//
-//         if (bit === '0') {
-//             isContinuation = false;
-//         }
-//     }
-//
-//     return {
-//         hex: binToHex(bin),
-//         value: bits.filter(bit => ! bit.continuation).map(bit => bit.bit).join(''),
-//         bits: bits,
-//     };
-// }
