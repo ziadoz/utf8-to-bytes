@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>UTF-8 to Bytes</title>
+
+    <!--
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    -->
+
+    <script type="importmap">
+        {
+            "imports": {
+                "utf8": "./js/utf8.mjs",
+                "ready": "./js/ready.mjs"
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="query">
+    <button type="submit">Submit</button>
+
+    <script type="module">
+        import ready from 'ready';
+        import { strToChars, charsToBytes, byteToBin, byteToHex, splitBin, binToDec } from 'utf8';
+
+        ready(() => {
+            const chars = strToChars('🐍');
+            console.dir(chars);
+
+            const bytes = charsToBytes(chars);
+            console.dir(bytes);
+
+            let number = '';
+
+            for (const [c, cb] of Object.entries(bytes)) {
+                for (const b of cb) {
+                    const bin = byteToBin(b);
+                    const hex = byteToHex(b);
+                    const split = splitBin(bin);
+                    number += split.remainder;
+
+                    console.log(c, bin, hex, split);
+                }
+            }
+
+            console.log(number, binToDec(number));
+        });
+    </script>
+</body>
+</html>
