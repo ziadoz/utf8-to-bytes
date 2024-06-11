@@ -1,0 +1,103 @@
+@layer reset, theme, layout, components;
+
+/* @link: https://www.joshwcomeau.com/css/custom-css-reset/ */
+@layer reset {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    * {
+        margin: 0;
+    }
+
+    body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+    }
+
+    input, button, textarea, select {
+        font: inherit;
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+        overflow-wrap: break-word;
+    }
+}
+
+/* @link: https://systemfontstack.com/ */
+/* @link: https://www.makeworld.space/garden/Computers/Web.html */
+@layer theme {
+    :root {
+        --colour-slate: #363737;
+        --colour-white: #fff;
+        --colour-teal: #196b72;
+        --colour-mustard: #fdb33c;
+    }
+}
+
+@layer layout {
+    html {
+        font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+        color: var(--colour-slate);
+    }
+
+    .wrapper {
+        max-width: 840px;
+        margin-inline: auto;
+        margin-block: 2rem;
+        padding-inline: 1rem;
+    }
+
+    .intro {
+        h1, p {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .input {
+        display: flex;
+        gap: 16px;
+
+        input {
+            flex-grow: 7;
+        }
+
+        button {
+            flex-grow: 1;
+        }
+    }
+
+    .output {
+        margin-top: 2rem;
+    }
+}
+
+@layer components {
+    ul.bytes {
+        font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+        margin-block: 1rem;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 16px;
+        justify-content: start;
+        color: var(--colour-white);
+
+        li {
+            text-align: center;
+            background: var(--colour-teal);
+        }
+
+        li.continuation {
+             background: var(--colour-mustard);
+        }
+    }
+}

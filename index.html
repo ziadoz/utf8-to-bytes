@@ -6,10 +6,8 @@
 
     <title>UTF-8 to Bytes</title>
 
-    <!--
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/stylesheet.css">
-    -->
+    <!--<link rel="icon" href="/favicon.ico" type="image/x-icon">-->
+    <link rel="stylesheet" href="./css/app.css">
 
     <script type="importmap">
         {
@@ -21,8 +19,32 @@
     </script>
 </head>
 <body>
-    <input type="text" name="query">
-    <button type="submit">Submit</button>
+    <div class="wrapper">
+        <div class="intro">
+            <h1>UTF-8 to Bytes</h1>
+            <p>Enter some characters to see a breakdown of the UTF-8 bytes:</p>
+        </div>
+
+        <div class="input">
+            <input type="text" name="query">
+            <button type="submit">Breakdown</button>
+        </div>
+
+        <div class="output">
+            <h1>Breakdown</h1>
+
+            <ul class="bytes">
+                <li class="continuation">1</li>
+                <li class="continuation">1</li>
+                <li class="continuation">1</li>
+                <li class="continuation">0</li>
+                <li>0</li>
+                <li>1</li>
+                <li>1</li>
+                <li>0</li>
+            </ul>
+        </div>
+    </div>
 
     <script type="module">
         import ready from 'ready';
