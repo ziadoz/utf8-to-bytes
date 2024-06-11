@@ -29,7 +29,7 @@ export function binToDec(bin) {
     return parseInt(bin, 2).toString(10);
 }
 
-export function splitBin(bin) {
+export function parseBin(bin) {
     const str = parseInt(bin, 2).toString(2);
     const index = str.indexOf('0') + 1 ;
 
