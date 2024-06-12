@@ -33,30 +33,75 @@
         <div class="output">
             <h1>Breakdown</h1>
 
-            <!--
-            <dl>/<dt>/<dd>
-
-            - Char: A
-              - Number: xxxxxxx
-              - Bytes:
-                - Byte: 11100110, Hex: 0xF0, Number: xxx
-                - Byte: 11100110, Hex: 0xF0, Number: xxx
-            - Char: B
-              - Number: xxx
-              - Bytes:
-                - Byte: 11100110, Hex: 0xF0, Number: xxx
-            -->
-
-            <ul class="bytes">
-                <li class="continuation">1</li>
-                <li class="continuation">1</li>
-                <li class="continuation">1</li>
-                <li class="continuation">0</li>
-                <li>0</li>
-                <li>1</li>
-                <li>1</li>
-                <li>0</li>
-            </ul>
+            <details open>
+                <summary>🐍 (<code title="Decimal">128013</code>, <code title="Hexadecimal">0x1F40D</code>)</summary>
+                <table class="bytes">
+                    <tr>
+                        <th>Byte 1: </th>
+                        <td>
+                            <ol>
+                                <li class="continuation">1</li>
+                                <li class="continuation">1</li>
+                                <li class="continuation">1</li>
+                                <li class="continuation">0</li>
+                                <li>0</li>
+                                <li>0</li>
+                                <li>0</li>
+                                <li>0</li>
+                            </ol>
+                        </td>
+                        <td>(<code title="Decimal">0</code>, <code title="Hexadecimal">0xF0</code>)</td>
+                    </tr>
+                    <tr>
+                        <th>Byte 2: </th>
+                        <td>
+                            <ol>
+                                <li class="continuation">1</li>
+                                <li class="continuation">0</li>
+                                <li>0</li>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>1</li>
+                            </ol>
+                        </td>
+                        <td>(<code title="Decimal">31</code>, <code title="Hexadecimal">0xF0</code>)</td>
+                    </tr>
+                    <tr>
+                        <th>Byte 3: </th>
+                        <td>
+                            <ol>
+                                <li class="continuation">1</li>
+                                <li class="continuation">0</li>
+                                <li>0</li>
+                                <li>1</li>
+                                <li>0</li>
+                                <li>0</li>
+                                <li>0</li>
+                                <li>0</li>
+                            </ol>
+                        </td>
+                        <td>(<code title="Decimal">16</code>, <code title="Hexadecimal">0x90</code>)</td>
+                    </tr>
+                    <tr>
+                        <th>Byte 4: </th>
+                        <td>
+                            <ol>
+                                <li class="continuation">1</li>
+                                <li class="continuation">0</li>
+                                <li>0</li>
+                                <li>0</li>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>0</li>
+                                <li>1</li>
+                            </ol>
+                        </td>
+                        <td>(<code title="Decimal">13</code>, <code title="Hexadecimal">0x8D</code>)</td>
+                    </tr>
+                </table>
+            </details>
         </div>
     </div>
 
@@ -80,7 +125,7 @@
                     const parse = parseBin(bin);
                     number += parse.remainder;
 
-                    console.log(c, bin, hex, parse);
+                    console.log(c, bin, hex, binToDec(parse.remainder), parse);
                 }
             }
 

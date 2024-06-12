@@ -1,4 +1,4 @@
-@layer reset, theme, layout, components;
+@layer reset, theme, layout;
 
 /* @link: https://www.joshwcomeau.com/css/custom-css-reset/ */
 @layer reset {
@@ -35,6 +35,10 @@
 /* @link: https://www.makeworld.space/garden/Computers/Web.html */
 @layer theme {
     :root {
+        --font-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+        --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+
+        --colour-cream: #fffdf5;
         --colour-slate: #363737;
         --colour-white: #fff;
         --colour-teal: #196b72;
@@ -44,8 +48,13 @@
 
 @layer layout {
     html {
-        font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+        font-family: var(--font-sans);
         color: var(--colour-slate);
+        background: var(--colour-cream);
+    }
+
+    h1, p {
+        margin-bottom: 1rem;
     }
 
     .wrapper {
@@ -53,12 +62,6 @@
         margin-inline: auto;
         margin-block: 2rem;
         padding-inline: 1rem;
-    }
-
-    .intro {
-        h1, p {
-            margin-bottom: 1rem;
-        }
     }
 
     .input {
@@ -77,27 +80,36 @@
     .output {
         margin-top: 2rem;
     }
-}
 
-@layer components {
-    ul.bytes {
-        font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
-        margin-block: 1rem;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        gap: 16px;
-        justify-content: start;
-        color: var(--colour-white);
+    summary {
+        cursor: pointer;
+    }
 
-        li {
-            text-align: center;
-            background: var(--colour-teal);
-        }
+    code {
+        font-family: var(--font-mono);
+    }
 
-        li.continuation {
-             background: var(--colour-mustard);
+    table.bytes {
+        margin-block: 0.5rem;
+
+        ol {
+            font-family: var(--font-mono);
+            color: var(--colour-white);
+            padding: 0;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(8, 24px);
+            grid-template-rows: 24px;
+            gap: 6px;
+
+            li {
+                text-align: center;
+                background: var(--colour-teal);
+            }
+
+            li.continuation {
+                background: var(--colour-mustard);
+            }
         }
     }
 }
