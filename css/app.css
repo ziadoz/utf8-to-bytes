@@ -90,7 +90,16 @@
     }
 
     table.bytes {
+        border-collapse: collapse;
         margin-block: 0.5rem;
+
+        th {
+            padding-right: 8px;
+        }
+
+        td, td {
+            padding: 4px;
+        }
 
         ol {
             font-family: var(--font-mono);
