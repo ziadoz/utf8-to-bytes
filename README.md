@@ -23,6 +23,10 @@ I used this project as chance to use modern web development practices:
 - JS Importmaps
 - Web Components
 
+## Todos
+
+- [ ] Improve layout on mobile.
+
 ## Resources
 
 - [Bytes: The Lesser-Known Python Built-In Sequence • And Understanding UTF-8 Encoding](https://www.thepythoncodingstack.com/p/bytes-python-built-in-unicode-utf-8-encoding)
