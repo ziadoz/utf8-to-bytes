@@ -33,7 +33,7 @@ export default class CharToBytes extends HTMLElement
         return `
         <details open>
             <summary>
-                <strong>${this.#char}</strong>
+                <code class="char">${this.#char}</code>
                 (<code title="Binary">${this.#charBin}</code>,
                  <code title="Hexadecimal">0x${this.#charHex}</code>,
                  <code title="Decimal">${this.#charDec}</code>)

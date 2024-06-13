@@ -85,12 +85,23 @@
         margin-top: 2rem;
     }
 
+    a.toggle {
+        text-decoration: none;
+        font-size: 0.8rem;
+        color: inherit;
+    }
+
     summary {
         cursor: pointer;
     }
 
     code {
         font-family: var(--font-mono);
+        display: inline-block;
+    }
+
+    code.char {
+        min-width: 1ch;
     }
 
     details {
