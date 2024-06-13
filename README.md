@@ -24,4 +24,5 @@ I used this project as chance to use modern web development practices:
 ## Resources
 
 - [Bytes: The Lesser-Known Python Built-In Sequence • And Understanding UTF-8 Encoding](https://www.thepythoncodingstack.com/p/bytes-python-built-in-unicode-utf-8-encoding)
-- [ASCII/UTF-8 to Binary](https://www.rapidtables.com/convert/number/ascii-to-binary.html)
+- [ASCII And UTF-8 to Binary](https://www.rapidtables.com/convert/number/ascii-to-binary.html)
+- [ASCII And UTF-8 Chart](https://design215.com/toolbox/ascii-utf8.php)
