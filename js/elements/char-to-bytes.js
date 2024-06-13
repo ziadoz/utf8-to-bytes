@@ -19,7 +19,7 @@ export default class CharToBytes extends HTMLElement
             const dec = binToDec(bin);
             const val = binToDec(parsed.remainder);
 
-            this.#bytes.push({ parsed, hex, dec, bin, val });
+            this.#bytes.push({ parsed, hex, dec, val });
         }
 
         this.#charBin = this.#bytes.map(byte => byte.parsed.remainder).join('');
@@ -35,7 +35,7 @@ export default class CharToBytes extends HTMLElement
             <summary>
                 ${this.#char}
                 (<code title="Binary">${this.#charBin}</code>,
-                 <code title="Hexadecimal">${this.#charHex}</code>,
+                 <code title="Hexadecimal">0x${this.#charHex}</code>,
                  <code title="Decimal">${this.#charDec}</code>)
             </summary>
             <table class="bytes">
@@ -54,10 +54,9 @@ export default class CharToBytes extends HTMLElement
                 </ol>
             </td>
             <td>
-                (<code title="Decimal">${byte.dec}</code>,
-                 <code title="UTF-8 Decimal">${byte.val}</code>,
-                 <code title="Hexadecimal">${byte.hex}</code>,
-                 <code title="Binary">${byte.bin}</code>)
+                (<code title="Hexadecimal">0x${byte.hex}</code>,
+                 <code title="Decimal">${byte.dec}</code>,
+                 <code title="Remainder Decimal">${byte.val}</code>)
             </td>
         </tr>`;
     }
