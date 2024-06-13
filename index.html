@@ -31,7 +31,7 @@
             <button type="submit">Breakdown</button>
         </form>
 
-        <div class="results">
+        <div class="results hide">
             <h1>Results</h1>
         </div>
     </div>
@@ -47,22 +47,25 @@
             document.querySelector('form').addEventListener('submit', (event) => {
                 event.preventDefault();
 
-                // Get the latest query...
-                const query = document.querySelector('input[name="query"]').value;
+                const output = document.querySelector('.results');
+                const chars = strToChars(document.querySelector('input[name="query"]').value);
 
-                // Clear out previous results...
                 Array.from(document.querySelectorAll('.results > char-to-bytes'))
                     .map(charToBytes => charToBytes.replaceChildren());
 
-                // Build results...
-                const output = document.querySelector('.results');
+                if (chars.length === 0) {
+                    output.classList.add('hide');
+                    return;
+                }
 
-                strToChars(query).map((char) => {
+                chars.map((char) => {
                     const charToBytes = document.createElement('char-to-bytes');
                     charToBytes.setAttribute('char', char);
 
                     output.append(charToBytes);
                 });
+
+                output.classList.remove('hide');
             });
         });
     </script>

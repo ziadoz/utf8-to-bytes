@@ -57,14 +57,18 @@
         margin-bottom: 1rem;
     }
 
-    .wrapper {
+    .hide {
+        display: none;
+    }
+
+    div.wrapper {
         max-width: 840px;
         margin-inline: auto;
         margin-block: 2rem;
         padding-inline: 1rem;
     }
 
-    .input {
+    form.input {
         display: flex;
         gap: 16px;
 
@@ -77,7 +81,7 @@
         }
     }
 
-    .results {
+    div.results {
         margin-top: 2rem;
     }
 
@@ -97,11 +101,7 @@
         border-collapse: collapse;
         margin-block: 0.5rem;
 
-        th {
-            padding-right: 8px;
-        }
-
-        td, td {
+        td {
             padding: 4px;
         }
 
