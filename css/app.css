@@ -143,11 +143,11 @@
 
             li {
                 text-align: center;
-                background: var(--colour-teal);
+                background: var(--colour-mustard);
             }
 
             li.continuation {
-                background: var(--colour-mustard);
+                background: var(--colour-teal);
             }
         }
     }
