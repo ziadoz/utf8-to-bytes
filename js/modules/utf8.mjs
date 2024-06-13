@@ -18,11 +18,7 @@ export function charToBytes(char) {
 }
 
 export function byteToBin(byte) {
-    return parseInt(byte).toString(2);
-}
-
-export function byteToHex(byte) {
-    return parseInt(byte).toString(16).toUpperCase();
+    return parseInt(byte).toString(2).padStart(8, '0'); // Ensure 8 bits for ASCII 7-bit ASCII characters.
 }
 
 export function binToHex(bin) {
@@ -34,8 +30,15 @@ export function binToDec(bin) {
 }
 
 export function parseBin(bin) {
-    const str = parseInt(bin, 2).toString(2);
-    const index = str.indexOf('0') + 1 ;
+    if (bin.charAt(0) === '0') {
+        return {
+            continuation: '',
+            remainder: bin,
+        };
+    }
+
+    const str = bin;
+    const index = bin.indexOf('0') + 1 ;
 
     return {
         continuation: str.substring(0, index),

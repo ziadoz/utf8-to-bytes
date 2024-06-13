@@ -31,9 +31,8 @@
             <button type="submit">Breakdown</button>
         </form>
 
-        <div class="output">
-            <h1>Breakdown</h1>
-            <char-to-bytes char="🐍"></char-to-bytes>
+        <div class="results">
+            <h1>Results</h1>
         </div>
     </div>
 
@@ -52,11 +51,11 @@
                 const query = document.querySelector('input[name="query"]').value;
 
                 // Clear out previous results...
-                Array.from(document.querySelectorAll('.output > char-to-bytes'))
+                Array.from(document.querySelectorAll('.results > char-to-bytes'))
                     .map(charToBytes => charToBytes.replaceChildren());
 
                 // Build results...
-                const output = document.querySelector('.output');
+                const output = document.querySelector('.results');
 
                 strToChars(query).map((char) => {
                     const charToBytes = document.createElement('char-to-bytes');

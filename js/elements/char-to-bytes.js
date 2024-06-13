@@ -1,4 +1,4 @@
-import { binToDec, binToHex, byteToBin, byteToHex, charToBytes, parseBin } from 'utf8';
+import { binToDec, binToHex, byteToBin, charToBytes, parseBin } from 'utf8';
 
 export default class CharToBytes extends HTMLElement
 {
@@ -39,15 +39,14 @@ export default class CharToBytes extends HTMLElement
                  <code title="Decimal">${this.#charDec}</code>)
             </summary>
             <table class="bytes">
-                ${this.#bytes.map((byte, index) => this.renderTableRow(index, byte)).join("\n")}
+                ${this.#bytes.map((byte) => this.renderTableRow(byte)).join("\n")}
             </table>
         </details>`;
     }
 
-    renderTableRow(index, byte) {
+    renderTableRow(byte) {
         return `
         <tr>
-            <th>Byte ${index + 1}:</th>
             <td>
                 <ol>
                     ${[...byte.parsed.continuation].map(bit => this.renderOrderedListItem(bit, true)).join("\n")}
