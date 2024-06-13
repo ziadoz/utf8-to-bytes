@@ -2,6 +2,8 @@
 
 A webpage that displays a UTF-8 strings as individual bytes.
 
+![](images/website.png)
+
 Inspired by [Bytes: The Lesser-Known Python Built-In Sequence • And Understanding UTF-8 Encoding](https://www.thepythoncodingstack.com/p/bytes-python-built-in-unicode-utf-8-encoding) by Stephen Gruppetta.
 
 ## Development
