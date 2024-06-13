@@ -7,10 +7,14 @@ export function charsToBytes(chars) {
     const bytes = {};
 
     for (const char of Array.from(chars)) {
-        bytes[char] = new TextEncoder().encode(char);
+        bytes[char] = charToBytes(char);
     }
 
     return bytes;
+}
+
+export function charToBytes(char) {
+    return new TextEncoder().encode(char);
 }
 
 export function byteToBin(byte) {

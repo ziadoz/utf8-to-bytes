@@ -89,6 +89,10 @@
         font-family: var(--font-mono);
     }
 
+    details {
+        margin-bottom: 2rem;
+    }
+
     table.bytes {
         border-collapse: collapse;
         margin-block: 0.5rem;

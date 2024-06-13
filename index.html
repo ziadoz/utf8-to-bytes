@@ -12,8 +12,9 @@
     <script type="importmap">
         {
             "imports": {
-                "utf8": "./js/utf8.mjs",
-                "ready": "./js/ready.mjs"
+                "utf8": "./js/modules/utf8.mjs",
+                "ready": "./js/modules/ready.mjs",
+                "char-to-bytes": "./js/elements/char-to-bytes.js"
             }
         }
     </script>
@@ -32,7 +33,9 @@
 
         <div class="output">
             <h1>Breakdown</h1>
+            <char-to-bytes char="🐍"></char-to-bytes>
 
+            <!--
             <details open>
                 <summary>🐍
                     (<code title="Decimal">128013</code>,
@@ -122,9 +125,53 @@
                     </tr>
                 </table>
             </details>
+            -->
         </div>
     </div>
 
+    <template id="char-to-bytes-details">
+        <details open>
+            <summary>
+                <span data-char></span>
+                (<code title="Binary" data-char-bin></code>,
+                <code title="Hexadecimal" data-char-hex></code>,
+                <code title="Decimal" data-char-dec></code>)
+            </summary>
+            <table class="bytes">
+            </table>
+        </details>
+    </template>
+
+    <template id="char-to-bytes-tr">
+        <tr>
+            <th data-byte></th>
+            <td>
+                <ol>
+                    <li data-bit-1></li>
+                    <li data-bit-2></li>
+                    <li data-bit-3></li>
+                    <li data-bit-4></li>
+                    <li data-bit-5></li>
+                    <li data-bit-6></li>
+                    <li data-bit-7></li>
+                    <li data-bit-8></li>
+                </ol>
+            </td>
+            <td>
+                (<code title="Binary" data-byte-dec>0000</code>
+                 <code title="Hexadecimal" data-byte-hex>0xF0</code>,
+                 <code title="Decimal" data-byte-dec>0</code>)
+            </td>
+        </tr>
+    </template>
+
+    <script type="module">
+        import CharToBytes from 'char-to-bytes';
+
+        customElements.define('char-to-bytes', CharToBytes);
+    </script>
+
+    <!--
     <script type="module">
         import ready from 'ready';
         import { strToChars, charsToBytes, byteToBin, byteToHex, parseBin, binToDec } from 'utf8';
@@ -152,5 +199,6 @@
             console.log(number, binToDec(number));
         });
     </script>
+    -->
 </body>
 </html>
