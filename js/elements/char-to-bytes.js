@@ -26,14 +26,6 @@ export default class CharToBytes extends HTMLElement
         this.#charHex = binToHex(this.#charBin);
         this.#charDec = binToDec(this.#charBin);
 
-        // console.debug(
-        //     this.#char,
-        //     this.#charDec,
-        //     this.#charHex,
-        //     this.#charBin,
-        //     this.#bytes,
-        // );
-
         this.innerHTML = this.renderDetails();
     }
 
@@ -58,14 +50,8 @@ export default class CharToBytes extends HTMLElement
             <th>Byte ${index + 1}:</th>
             <td>
                 <ol>
-                    <li class="continuation">1</li>
-                    <li class="continuation">1</li>
-                    <li class="continuation">1</li>
-                    <li class="continuation">0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
-                    <li>0</li>
+                    ${[...byte.parsed.continuation].map(bit => this.renderOrderedListItem(bit, true)).join("\n")}
+                    ${[...byte.parsed.remainder].map(bit => this.renderOrderedListItem(bit)).join("\n")}
                 </ol>
             </td>
             <td>
@@ -78,63 +64,10 @@ export default class CharToBytes extends HTMLElement
     }
 
     renderOrderedListItem(bit, continuation) {
-
-    }
-
-    /*
-    this.append(this.createTable());
-
-    createTable() {
-        const table = document.createElement('table');
-        table.classList.add('bytes');
-
-        for (const [index, byte] of Object.entries(charToBytes(this.#char))) {
-            console.log(index, byte, this.createOrderedList(byte));
+        if (continuation) {
+            return `<li class="continuation" title="Continuation Bit">${bit}</li>`;
         }
 
-        return table;
+        return `<li title="Remainder Bit">${bit}</li>`;
     }
-
-    createTableRow(index, byte) {
-        const tr = document.createElement('tr');
-
-        const th = document.createElement('th');
-        th.textContent = `Byte ${index + 1}`;
-        tr.append(th);
-
-        const tdBytes = document.createElement('td');
-        tdBytes.append(this.createOrderedList(byte));
-
-        const tdExtra = document.createElement('td');
-
-        // const bin = byteToBin(b);
-        // const hex = byteToHex(b);
-        // const parse = parseBin(bin);
-        // number += parse.remainder;
-        //
-        // console.log(c, bin, hex, binToDec(parse.remainder), parse);
-        //
-    }
-
-    createOrderedList(byte) {
-        const parsed = parseBin(byteToBin(byte));
-
-        const ol = document.createElement('ol');
-
-        for (const bit in parsed.continuation) {
-            const li = document.createElement('li');
-            li.classList.add('continuation');
-            li.textContent = bit;
-            ol.append(li);
-        }
-
-        for (const bit in parsed.remainder) {
-            const li = document.createElement('li');
-            li.textContent = bit;
-            ol.append(li);
-        }
-
-        return ol;
-    }
-    */
 }
