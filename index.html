@@ -26,10 +26,10 @@
             <p>Enter some characters to see a breakdown of the UTF-8 bytes:</p>
         </div>
 
-        <div class="input">
+        <form class="input">
             <input type="text" name="query">
             <button type="submit">Breakdown</button>
-        </div>
+        </form>
 
         <div class="output">
             <h1>Breakdown</h1>
@@ -39,38 +39,33 @@
 
     <script type="module">
         import CharToBytes from 'char-to-bytes';
+        import ready from 'ready';
+        import { strToChars } from 'utf8';
 
         customElements.define('char-to-bytes', CharToBytes);
-    </script>
-
-    <!--
-    <script type="module">
-        import ready from 'ready';
-        import { strToChars, charsToBytes, byteToBin, byteToHex, parseBin, binToDec } from 'utf8';
 
         ready(() => {
-            const chars = strToChars('🐍');
-            console.dir(chars);
+            document.querySelector('form').addEventListener('submit', (event) => {
+                event.preventDefault();
 
-            const bytes = charsToBytes(chars);
-            console.dir(bytes);
+                // Get the latest query...
+                const query = document.querySelector('input[name="query"]').value;
 
-            let number = '';
+                // Clear out previous results...
+                Array.from(document.querySelectorAll('.output > char-to-bytes'))
+                    .map(charToBytes => charToBytes.replaceChildren());
 
-            for (const [c, cb] of Object.entries(bytes)) {
-                for (const b of cb) {
-                    const bin = byteToBin(b);
-                    const hex = byteToHex(b);
-                    const parse = parseBin(bin);
-                    number += parse.remainder;
+                // Build results...
+                const output = document.querySelector('.output');
 
-                    console.log(c, bin, hex, binToDec(parse.remainder), parse);
-                }
-            }
+                strToChars(query).map((char) => {
+                    const charToBytes = document.createElement('char-to-bytes');
+                    charToBytes.setAttribute('char', char);
 
-            console.log(number, binToDec(number));
+                    output.append(charToBytes);
+                });
+            });
         });
     </script>
-    -->
 </body>
 </html>
