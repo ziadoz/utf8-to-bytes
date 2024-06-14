@@ -25,6 +25,7 @@ I used this project as chance to use modern web development practices:
 ## Todos
 
 - [ ] Improve layout on mobile.
+- [ ] Need a favicon.
 
 ## Resources
 
