@@ -16,7 +16,7 @@ php -S localhost:8000
 
 ## Notes
 
-I used this project as chance to use modern web development practices:
+I used modern web development practices to build this project:
 
 - CSS Layers, Nesting, Grid, Flexbox, Has and Variables
 - JS Importmaps
