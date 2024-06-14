@@ -18,7 +18,7 @@ export function charToBytes(char) {
 }
 
 export function byteToBin(byte) {
-    return parseInt(byte).toString(2).padStart(8, '0'); // Ensure 8 bits for ASCII 7-bit ASCII characters.
+    return parseInt(byte).toString(2).padStart(8, '0'); // Ensure 8 bits for 7-bit ASCII characters.
 }
 
 export function binToHex(bin) {
