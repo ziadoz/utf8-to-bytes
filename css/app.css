@@ -57,10 +57,6 @@
         margin-bottom: 1rem;
     }
 
-    .hide {
-        display: none;
-    }
-
     div.wrapper {
         max-width: 840px;
         margin-inline: auto;
@@ -83,6 +79,11 @@
 
     div.results {
         margin-top: 2rem;
+        display: none;
+
+        &:has(> char-to-bytes) {
+            display: inherit;
+        }
     }
 
     a.toggle {
