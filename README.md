@@ -26,6 +26,8 @@ I used modern web development practices to build this project:
 
 - [ ] Improve layout on mobile.
 - [ ] Need a favicon.
+- [ ] See if characters can be linked/broken down from query string.
+- [ ] Add link/icon to code on GitHub.
 
 ## Resources
 
