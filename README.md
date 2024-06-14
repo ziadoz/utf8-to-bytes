@@ -24,7 +24,6 @@ I used modern web development practices to build this project:
 
 ## Todos
 
-- [ ] Improve layout on mobile.
 - [ ] See if characters can be linked/broken down from query string.
 - [ ] Add link/icon to code on GitHub.
 
