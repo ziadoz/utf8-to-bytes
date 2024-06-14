@@ -17,9 +17,8 @@ export default class CharToBytes extends HTMLElement
             const parsed = parseBin(bin);
             const hex = binToHex(bin);
             const dec = binToDec(bin);
-            const val = binToDec(parsed.remainder);
 
-            this.#bytes.push({ parsed, hex, dec, val });
+            this.#bytes.push({ parsed, hex, dec });
         }
 
         this.#charBin = this.#bytes.map(byte => byte.parsed.remainder).join('');
@@ -33,10 +32,10 @@ export default class CharToBytes extends HTMLElement
         return `
         <details open>
             <summary>
-                <code class="char">${this.#char}</code>
-                (<code title="Binary">${this.#charBin}</code>,
-                 <code title="Hexadecimal">0x${this.#charHex}</code>,
-                 <code title="Decimal">${this.#charDec}</code>)
+                <code class="char">${this.#char}: </code>
+                <code class="base" title="Binary">${this.#charBin}</code> 
+                <code class="base" title="Hexadecimal">0x${this.#charHex}</code> 
+                <code class="base" title="Decimal">${this.#charDec}</code>
             </summary>
             <table class="bytes">
                 ${this.#bytes.map((byte) => this.renderTableRow(byte)).join("\n")}
@@ -48,15 +47,14 @@ export default class CharToBytes extends HTMLElement
         return `
         <tr>
             <td>
-                <ol>
+                <ol class="bits">
                     ${[...byte.parsed.continuation].map(bit => this.renderOrderedListItem(bit, true)).join("\n")}
                     ${[...byte.parsed.remainder].map(bit => this.renderOrderedListItem(bit)).join("\n")}
                 </ol>
             </td>
             <td>
-                (<code title="Hexadecimal">0x${byte.hex}</code>,
-                 <code title="Decimal">${byte.dec}</code>,
-                 <code title="Remainder Decimal">${byte.val}</code>)
+                <code class="base" title="Hexadecimal">0x${byte.hex}</code>
+                <code class="base" title="Decimal">${byte.dec}</code>
             </td>
         </tr>`;
     }

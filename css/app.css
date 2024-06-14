@@ -53,20 +53,20 @@
         background: var(--colour-cream);
     }
 
-    h1, p {
-        margin-bottom: 1rem;
+    h1 {
+        margin-bottom: 16px;
     }
 
     div.wrapper {
         max-width: 840px;
         margin-inline: auto;
-        margin-block: 2rem;
-        padding-inline: 1rem;
+        margin-block: 32px;
+        padding-inline: 16px;
     }
 
     form.input {
         display: flex;
-        gap: 16px;
+        gap: 8px;
 
         input {
             flex-grow: 7;
@@ -78,7 +78,7 @@
     }
 
     div.results {
-        margin-top: 2rem;
+        margin-top: 32px;
         display: none;
 
         &:has(> char-to-bytes) {
@@ -88,10 +88,10 @@
 
     a.toggle {
         display: inline-block;
-        margin-left: 0.5rem;
-        font-size: 0.9rem;
+        margin-left: 8px;
+        font-size: 16px;
         font-weight: normal;
-        color: inherit;
+        color: var(--colour-slate);
         text-decoration: none;
         vertical-align: middle;
 
@@ -107,6 +107,10 @@
         }
     }
 
+    details {
+        margin-bottom: 32px;
+    }
+
     summary {
         cursor: pointer;
     }
@@ -114,42 +118,38 @@
     code {
         font-family: var(--font-mono);
         display: inline-block;
-    }
 
-    code.char {
-        min-width: 1ch;
-    }
-
-    details {
-        margin-bottom: 2rem;
+        &.char {
+            min-width: 1ch;
+        }
     }
 
     table.bytes {
         border-collapse: collapse;
-        margin-block: 0.5rem;
+        margin-block: 8px;
 
         td {
             padding: 4px;
         }
+    }
 
-        ol {
-            font-family: var(--font-mono);
-            color: var(--colour-white);
-            padding: 0;
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(8, 24px);
-            grid-template-rows: 24px;
-            gap: 6px;
+    ol.bits {
+        font-family: var(--font-mono);
+        color: var(--colour-white);
+        padding: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(8, 24px);
+        grid-template-rows: 24px;
+        gap: 6px;
 
-            li {
-                text-align: center;
-                background: var(--colour-mustard);
-            }
+        li {
+            text-align: center;
+            background: var(--colour-mustard);
+        }
 
-            li.continuation {
-                background: var(--colour-teal);
-            }
+        li.continuation {
+            background: var(--colour-teal);
         }
     }
 }
