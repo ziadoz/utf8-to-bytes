@@ -1,6 +1,6 @@
 # UTF-8 to Bytes
 
-A webpage that displays a UTF-8 strings as individual bytes.
+A webpage that displays UTF-8 strings as individual bytes.
 
 ![](images/website.png)
 
