@@ -152,4 +152,11 @@
             background: var(--colour-teal);
         }
     }
+
+    .github-corner {
+        position: absolute;
+        top: 0;
+        border: 0;
+        right: 0;
+    }
 }
