@@ -22,10 +22,6 @@ I used modern web development practices to build this project:
 - JS Importmaps
 - Web Components
 
-## Todos
-
-- [ ] See if characters can be linked/broken down from query string.
-
 ## Resources
 
 - [Bytes: The Lesser-Known Python Built-In Sequence • And Understanding UTF-8 Encoding](https://www.thepythoncodingstack.com/p/bytes-python-built-in-unicode-utf-8-encoding)

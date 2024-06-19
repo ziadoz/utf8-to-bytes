@@ -4,22 +4,56 @@ import { strToChars } from 'utf8';
 
 customElements.define('char-to-bytes', CharToBytes);
 
+// Render the results.
+const render = (query) => {
+    const chars = strToChars(query);
+    const output = document.querySelector('.results');
+
+    Array.from(document.querySelectorAll('.results > char-to-bytes'))
+        .map(charToBytes => charToBytes.remove());
+
+    chars.map((char) => {
+        const charToBytes = document.createElement('char-to-bytes');
+        charToBytes.setAttribute('char', char);
+
+        output.append(charToBytes);
+    });
+};
+
+// Update the input, toggle and querystring.
+const update = (query) => {
+    document.querySelector('input[name="query"]').value = query;
+    document.querySelector('a.toggle').textContent = 'Collapse All';
+
+    const url = new URL(window.location.href);
+
+    if (query !== '') {
+        url.searchParams.set('query', query);
+    } else {
+        url.searchParams.delete('query');
+    }
+
+    history.replaceState(history.state, '', url.href);
+};
+
 ready(() => {
+    window.addEventListener('load', (event) => {
+        const query = new URLSearchParams(window.location.search).get('query') ?? '';
+
+        if (query !== '') {
+            render(query);
+            update(query);
+        }
+    });
+
+
     document.querySelector('form').addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const output = document.querySelector('.results');
-        const chars = strToChars(document.querySelector('input[name="query"]').value);
+        const query = document.querySelector('input[name="query"]').value;
 
-        Array.from(document.querySelectorAll('.results > char-to-bytes'))
-            .map(charToBytes => charToBytes.remove());
-
-        chars.map((char) => {
-            const charToBytes = document.createElement('char-to-bytes');
-            charToBytes.setAttribute('char', char);
-
-            output.append(charToBytes);
-        });
+        render(query);
+        update(query);
     });
 
     document.querySelector('a.toggle').addEventListener('click', (event) => {
