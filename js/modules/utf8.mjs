@@ -3,16 +3,6 @@ export function strToChars(str) {
     return [...str];
 }
 
-export function charsToBytes(chars) {
-    const bytes = {};
-
-    for (const char of Array.from(chars)) {
-        bytes[char] = charToBytes(char);
-    }
-
-    return bytes;
-}
-
 export function charToBytes(char) {
     return new TextEncoder().encode(char);
 }
