@@ -1,3 +1,5 @@
+import { database } from 'database';
+
 // @link: https://stackoverflow.com/a/62305199
 export function strToChars(str) {
     return [...str];
@@ -5,6 +7,10 @@ export function strToChars(str) {
 
 export function charToBytes(char) {
     return new TextEncoder().encode(char);
+}
+
+export function charToName(hex) {
+    return database[hex.padStart(4, '0')] ?? '';
 }
 
 export function byteToBin(byte) {

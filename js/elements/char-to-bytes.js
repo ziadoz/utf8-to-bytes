@@ -1,4 +1,4 @@
-import { binToDec, binToHex, byteToBin, charToBytes, parseBin } from 'utf8';
+import { binToDec, binToHex, byteToBin, charToBytes, charToName, parseBin } from 'utf8';
 
 export default class CharToBytes extends HTMLElement
 {
@@ -6,6 +6,7 @@ export default class CharToBytes extends HTMLElement
     #charBin = '';
     #charHex = '';
     #charDec = '';
+    #charName = '';
     #bytes = [];
 
     connectedCallback() {
@@ -24,6 +25,7 @@ export default class CharToBytes extends HTMLElement
         this.#charBin = this.#bytes.map(byte => byte.parsed.remainder).join('');
         this.#charHex = binToHex(this.#charBin);
         this.#charDec = binToDec(this.#charBin);
+        this.#charName = charToName(this.#charHex);
 
         this.innerHTML = this.renderDetails();
     }
@@ -32,7 +34,7 @@ export default class CharToBytes extends HTMLElement
         return `
         <details open>
             <summary>
-                <code class="char">${this.#char}</code>
+                <code class="char" title="${this.#charName}">${this.#char}</code>
                 <code class="base" title="Binary">${this.#charBin}</code> 
                 <code class="base" title="Hexadecimal">0x${this.#charHex}</code> 
                 <code class="base" title="Decimal">${this.#charDec}</code>
