@@ -9,6 +9,10 @@ export function strToChars(str) {
         .map((segment) => segment.segment);
 }
 
+export function strToCodePoints(str) {
+    return [...str];
+}
+
 export function charToBytes(char) {
     return new TextEncoder().encode(char);
 }
@@ -27,6 +31,10 @@ export function binToHex(bin) {
 
 export function binToDec(bin) {
     return parseInt(bin, 2).toString(10);
+}
+
+export function codePointToHex(cp) {
+    return cp.codePointAt(0).toString(16).toUpperCase();
 }
 
 export function parseBin(bin) {

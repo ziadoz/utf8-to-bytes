@@ -1,4 +1,5 @@
-import { binToDec, binToHex, byteToBin, charToBytes, charToName, parseBin } from 'utf8';
+import { binToDec, binToHex, byteToBin, charToBytes, charToName, parseBin, strToCodePoints } from 'utf8';
+import { codePointToHex } from '../modules/utf8.mjs';
 
 export default class CharToBytes extends HTMLElement
 {
@@ -25,7 +26,9 @@ export default class CharToBytes extends HTMLElement
         this.#charBin = this.#bytes.map(byte => byte.parsed.remainder).join('');
         this.#charHex = binToHex(this.#charBin);
         this.#charDec = binToDec(this.#charBin);
-        this.#charName = charToName(this.#charHex);
+        this.#charName = strToCodePoints(this.#char)
+            .map(codepoint => codepoint + ' [' + charToName(codePointToHex(codepoint)) + ']')
+            .join("\n");
 
         this.innerHTML = this.renderDetails();
     }
