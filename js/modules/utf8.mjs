@@ -1,8 +1,10 @@
 import { database } from 'database';
 
 // @link: https://stackoverflow.com/a/62305199
+// @link: https://bsky.app/profile/did:plc:etdjdgnly5tz5l5xdd4jq76d/post/3m3umixshqs2r
 export function strToChars(str) {
-    return [...str];
+    return Array.from(new Intl.Segmenter().segment(str))
+        .map((segment) => segment.segment);
 }
 
 export function charToBytes(char) {
