@@ -1,4 +1,5 @@
 // @link: https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt
+// @link: https://www.unicode.org/Public/emoji/latest/emoji-sequences.txt
 // @link: https://jakearchibald.com/2025/importing-vs-fetching-json/
 import database from './database.json' with { type: 'json' };
 
