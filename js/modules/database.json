@@ -1,5 +1,4 @@
-// @link: https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt
-export const database = {
+{
     "0000": "<control>",
     "0001": "<control>",
     "0002": "<control>",
@@ -40575,4 +40574,4 @@ export const database = {
     "FFFFD": "<Plane 15 Private Use, Last>",
     "100000": "<Plane 16 Private Use, First>",
     "10FFFD": "<Plane 16 Private Use, Last>"
-};
+}

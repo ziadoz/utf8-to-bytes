@@ -1,4 +1,6 @@
-import { database } from 'database';
+// @link: https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt
+// @link: https://jakearchibald.com/2025/importing-vs-fetching-json/
+import database from './database.json' with { type: 'json' };
 
 // @link: https://stackoverflow.com/a/62305199
 // @link: https://bsky.app/profile/did:plc:etdjdgnly5tz5l5xdd4jq76d/post/3m3umixshqs2r
